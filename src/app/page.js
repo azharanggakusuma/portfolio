@@ -1,12 +1,11 @@
 import Navbar from "../components/navbar";
+import Hero from "../components/hero";
 
 export default function Home() {
   return (
     <div>
       <Navbar />
-      <main className="p-4">
-        <p>Ini adalah konten utama halaman.</p>
-      </main>
+      <Hero />
     </div>
   );
 }
