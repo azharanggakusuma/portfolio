@@ -105,13 +105,13 @@ const Contact = () => {
                 <p className="text-xs text-neutral-500">All fields are required</p>
 
                 <p className="mt-5">
-                  <a
+                  <button
+                    type="submit"
                     className="group inline-flex items-center gap-x-2 py-2 px-3 bg-[#ff0] font-medium text-sm text-neutral-800 rounded-full focus:outline-none"
-                    href="#"
                   >
                     Submit
                     <svg
-                      className="shrink-0 size-4 transition group-hover:translate-x-0.5 group-hover:translate-x-0 group-focus:translate-x-0.5 group-focus:translate-x-0"
+                      className="shrink-0 size-4 transition group-hover:translate-x-0 group-focus:translate-x-0"
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
                       height="24"
@@ -125,7 +125,7 @@ const Contact = () => {
                       <path d="M5 12h14" />
                       <path d="m12 5 7 7-7 7" />
                     </svg>
-                  </a>
+                  </button>
                 </p>
               </div>
             </form>
