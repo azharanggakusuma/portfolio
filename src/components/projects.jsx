@@ -1,29 +1,18 @@
-import React from "react";
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "Project Title 1",
-      description:
-        "This is a short description of the project. It provides an overview of the project and its key features.",
-      image: "https://via.placeholder.com/300",
-      link: "https://example.com",
-    },
-    {
-      title: "Project Title 2",
-      description:
-        "This is a short description of the project. It provides an overview of the project and its key features.",
-      image: "https://via.placeholder.com/300",
-      link: "https://example.com",
-    },
-    {
-      title: "Project Title 3",
-      description:
-        "This is a short description of the project. It provides an overview of the project and its key features.",
-      image: "https://via.placeholder.com/300",
-      link: "https://example.com",
-    },
-  ];
+  const [projects, setProjects] = useState([]);
+
+  // Ambil data dari backend
+  useEffect(() => {
+    axios
+      .get('http://localhost:5000/api/projects')
+      .then((res) => setProjects(res.data))
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <section className="bg-neutral-900 text-white py-20" id="projects">
