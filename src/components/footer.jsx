@@ -137,19 +137,22 @@ const Footer = () => {
           <div>
             <a
               className="size-10 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-white hover:bg-white/10 focus:outline-none focus:bg-white/10 disabled:opacity-50 disabled:pointer-events-none"
-              href="#"
+              href="https://instagram.com/azharangga_kusuma"
+              target="_blank"
             >
               <i className="fab fa-instagram"></i>
             </a>
             <a
               className="size-10 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-white hover:bg-white/10 focus:outline-none focus:bg-white/10 disabled:opacity-50 disabled:pointer-events-none"
-              href="#"
+              href="https://www.linkedin.com/in/azharanggakusuma"
+              target="_blank"
             >
               <i className="fab fa-linkedin"></i>
             </a>
             <a
               className="size-10 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-white hover:bg-white/10 focus:outline-none focus:bg-white/10 disabled:opacity-50 disabled:pointer-events-none"
-              href="#"
+              href="https://github.com/azharanggakusuma"
+              target="_blank"
             >
               <i className="fab fa-github"></i>
             </a>

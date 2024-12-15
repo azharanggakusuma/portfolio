@@ -6,23 +6,27 @@ import "../css/style.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap", // Menambahkan display: swap
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap", // Menambahkan display: swap
 });
 
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: "400", // Specify a valid weight for Poppins
+  display: "swap", // Menambahkan display: swap
 });
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
   weight: "400", // Specify a valid weight for Montserrat
+  display: "swap", // Menambahkan display: swap
 });
 
 export const metadata = {
