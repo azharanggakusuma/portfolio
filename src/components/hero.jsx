@@ -3,7 +3,10 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section className="relative bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white pt-8">
+    <section
+      className="relative bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white pt-8"
+      id="home"
+    >
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -11,8 +14,8 @@ const Hero = () => {
           alt="Hero Background"
           layout="fill"
           objectFit="cover"
-          quality={75} // Optional: Adjust image quality
-          priority // Optional: Ensures this image is loaded early
+          quality={75}
+          priority
         />
       </div>
 

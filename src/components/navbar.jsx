@@ -1,11 +1,12 @@
-'use client'; // Ensure this is at the top to mark the component as client-side
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
-import '../css/style.css'; // Import the external CSS for the animation
+import { useState, useEffect, useRef } from "react";
+import "../css/style.css";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isNavbarScrolled, setIsNavbarScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   // Create refs for the elements
   const mobileMenuButtonRef = useRef(null);
@@ -17,7 +18,7 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // Change navbar on scroll
+  // Change navbar on scroll and update active section
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > window.innerHeight / 2) {
@@ -25,6 +26,21 @@ const Navbar = () => {
       } else {
         setIsNavbarScrolled(false);
       }
+
+      // Update active section based on scroll position
+      const sections = ["home", "about-me", "services", "projects", "contact"];
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (
+            rect.top <= window.innerHeight / 2 &&
+            rect.bottom >= window.innerHeight / 2
+          ) {
+            setActiveSection(section);
+          }
+        }
+      });
     };
 
     const mobileMenuButton = mobileMenuButtonRef.current;
@@ -33,32 +49,32 @@ const Navbar = () => {
 
     // Add event listener for mobile menu toggle
     const handleMobileMenuToggle = () => {
-      mobileMenu.classList.toggle('hidden');
-      mobileMenuButton.classList.toggle('active');
-      mobileMenuButton.blur(); // Remove focus after clicking
+      mobileMenu.classList.toggle("hidden");
+      mobileMenuButton.classList.toggle("active");
+      mobileMenuButton.blur();
     };
 
     // Attach event listeners
     if (mobileMenuButton) {
-      mobileMenuButton.addEventListener('click', handleMobileMenuToggle);
+      mobileMenuButton.addEventListener("click", handleMobileMenuToggle);
     }
 
     // Attach scroll event listener for navbar
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     // Cleanup event listeners on component unmount
     return () => {
       if (mobileMenuButton) {
-        mobileMenuButton.removeEventListener('click', handleMobileMenuToggle);
+        mobileMenuButton.removeEventListener("click", handleMobileMenuToggle);
       }
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
     <nav
       className={`fixed top-0 left-0 w-full bg-gray-800 bg-opacity-80 backdrop-blur-md z-50 transition-all ${
-        isNavbarScrolled ? 'navbar-scroll' : ''
+        isNavbarScrolled ? "navbar-scroll" : ""
       }`}
       id="navbar"
       ref={navbarRef}
@@ -76,26 +92,61 @@ const Navbar = () => {
 
           {/* Navigation Links */}
           <div className="hidden md:flex space-x-8">
-            <a href="#" className="text-md font-medium text-gray-300 hover:text-white">
+            <a
+              href="#home"
+              className={`text-md font-medium ${
+                activeSection === "home" ? "text-yellow-500" : "text-gray-300"
+              } hover:text-white`}
+            >
               Home
             </a>
-            <a href="#about-me" className="text-md font-medium text-gray-300 hover:text-white">
+            <a
+              href="#about-me"
+              className={`text-md font-medium ${
+                activeSection === "about-me"
+                  ? "text-yellow-500"
+                  : "text-gray-300"
+              } hover:text-white`}
+            >
               About
             </a>
-            <a href="#services" className="text-md font-medium text-gray-300 hover:text-white">
+            <a
+              href="#services"
+              className={`text-md font-medium ${
+                activeSection === "services"
+                  ? "text-yellow-500"
+                  : "text-gray-300"
+              } hover:text-white`}
+            >
               Services
             </a>
-            <a href="#projects" className="text-md font-medium text-gray-300 hover:text-white">
+            <a
+              href="#projects"
+              className={`text-md font-medium ${
+                activeSection === "projects"
+                  ? "text-yellow-500"
+                  : "text-gray-300"
+              } hover:text-white`}
+            >
               Projects
             </a>
-            <a href="#contact" className="text-md font-medium text-gray-300 hover:text-white">
+            <a
+              href="#contact"
+              className={`text-md font-medium ${
+                activeSection === "contact"
+                  ? "text-yellow-500"
+                  : "text-gray-300"
+              } hover:text-white`}
+            >
               Contact
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className={`md:hidden text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white burger ${isMobileMenuOpen ? 'open' : ''}`}
+            className={`md:hidden text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white burger ${
+              isMobileMenuOpen ? "open" : ""
+            }`}
             id="mobile-menu-button"
             ref={mobileMenuButtonRef}
           >
@@ -107,21 +158,50 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`} id="mobile-menu" ref={mobileMenuRef}>
+      <div
+        className={`md:hidden ${isMobileMenuOpen ? "block" : "hidden"}`}
+        id="mobile-menu"
+        ref={mobileMenuRef}
+      >
         <div className="px-2 pt-2 pb-3 space-y-1">
-          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">
+          <a
+            href="#home"
+            className={`block px-3 py-2 rounded-md text-base font-medium ${
+              activeSection === "home" ? "text-yellow-500" : "text-gray-300"
+            } hover:text-white hover:bg-gray-700`}
+          >
             Home
           </a>
-          <a href="#about-me" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">
+          <a
+            href="#about-me"
+            className={`block px-3 py-2 rounded-md text-base font-medium ${
+              activeSection === "about-me" ? "text-yellow-500" : "text-gray-300"
+            } hover:text-white hover:bg-gray-700`}
+          >
             About
           </a>
-          <a href="#services" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">
+          <a
+            href="#services"
+            className={`block px-3 py-2 rounded-md text-base font-medium ${
+              activeSection === "services" ? "text-yellow-500" : "text-gray-300"
+            } hover:text-white hover:bg-gray-700`}
+          >
             Services
           </a>
-          <a href="#projects" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">
+          <a
+            href="#projects"
+            className={`block px-3 py-2 rounded-md text-base font-medium ${
+              activeSection === "projects" ? "text-yellow-500" : "text-gray-300"
+            } hover:text-white hover:bg-gray-700`}
+          >
             Projects
           </a>
-          <a href="#contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">
+          <a
+            href="#contact"
+            className={`block px-3 py-2 rounded-md text-base font-medium ${
+              activeSection === "contact" ? "text-yellow-500" : "text-gray-300"
+            } hover:text-white hover:bg-gray-700`}
+          >
             Contact
           </a>
         </div>
