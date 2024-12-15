@@ -47,7 +47,7 @@ const About = () => {
             <p align="left" className="mb-6">
               <a href="https://skillicons.dev">
                 <img
-                  src="https://skillicons.dev/icons?i=php,mysql,nodejs,laravel"
+                  src="https://skillicons.dev/icons?i=php,mysql,nodejs,mongodb,express,laravel"
                   alt="Backend Tech Stack"
                 />
               </a>
@@ -58,7 +58,7 @@ const About = () => {
             <p align="left">
               <a href="https://skillicons.dev">
                 <img
-                  src="https://skillicons.dev/icons?i=windows,vscode,git,github,figma,vercel,npm,bun"
+                  src="https://skillicons.dev/icons?i=windows,vscode,git,github,figma,vercel,npm,bun,postman"
                   alt="Tools"
                 />
               </a>

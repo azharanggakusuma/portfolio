@@ -136,13 +136,13 @@ export default function AdminPage() {
   };
 
   return (
-    <div className="p-8 bg-gray-50 text-gray-800 font-sans">
+    <div className="p-8 bg-gray-100 text-gray-700 font-sans">
       <h1 className="text-3xl font-semibold mb-6">Admin Dashboard</h1>
 
       {statusMessage.message && (
         <div
           className={`p-4 mb-4 rounded-md text-white ${
-            statusMessage.type === "success" ? "bg-green-500" : "bg-red-500"
+            statusMessage.type === "success" ? "bg-green-600" : "bg-red-600"
           }`}
         >
           {statusMessage.message}
@@ -152,7 +152,7 @@ export default function AdminPage() {
       {showAddModal && (
         <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center">
           <div className="bg-white p-6 rounded-lg w-1/3 shadow-lg">
-            <h2 className="text-2xl font-semibold mb-6 text-gray-800">Add New Project</h2>
+            <h2 className="text-2xl font-semibold mb-6 text-gray-800">Add Project</h2>
             <form onSubmit={handleAddProject} className="space-y-4">
               <input
                 type="text"
@@ -160,14 +160,14 @@ export default function AdminPage() {
                 value={newProject.title}
                 onChange={handleInputChange}
                 placeholder="Project Title"
-                className="block w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+                className="block w-full p-3 border border-gray-300 rounded-md"
               />
               <textarea
                 name="description"
                 value={newProject.description}
                 onChange={handleInputChange}
-                placeholder="Project Description"
-                className="block w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+                placeholder="Description"
+                className="block w-full p-3 border border-gray-300 rounded-md"
               />
               <input
                 type="text"
@@ -175,7 +175,7 @@ export default function AdminPage() {
                 value={newProject.image}
                 onChange={handleInputChange}
                 placeholder="Image URL"
-                className="block w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+                className="block w-full p-3 border border-gray-300 rounded-md"
               />
               <input
                 type="text"
@@ -183,14 +183,14 @@ export default function AdminPage() {
                 value={newProject.link}
                 onChange={handleInputChange}
                 placeholder="Project Link"
-                className="block w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+                className="block w-full p-3 border border-gray-300 rounded-md"
               />
               <div className="flex justify-end space-x-4 mt-4">
                 <button
                   type="submit"
-                  className="bg-blue-600 text-white py-2 px-6 rounded-md hover:bg-blue-700"
+                  className="bg-gray-600 text-white py-2 px-6 rounded-md hover:bg-gray-700"
                 >
-                  Add Project
+                  Add
                 </button>
                 <button
                   type="button"
@@ -207,7 +207,7 @@ export default function AdminPage() {
 
       <button
         onClick={() => setShowAddModal(true)}
-        className="bg-green-500 text-white py-2 px-4 rounded mb-6 hover:bg-green-600"
+        className="bg-gray-600 text-white py-2 px-4 rounded mb-6 hover:bg-gray-700"
       >
         Add New Project
       </button>
@@ -243,9 +243,9 @@ export default function AdminPage() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline"
+                    className="text-gray-600 hover:underline"
                   >
-                    View Project
+                    View
                   </a>
                 </td>
                 <td className="px-4 py-2 space-x-4">
@@ -254,7 +254,7 @@ export default function AdminPage() {
                       setEditProject(project);
                       setShowEditModal(true);
                     }}
-                    className="bg-yellow-500 text-white py-1 px-3 rounded-md hover:bg-yellow-600"
+                    className="bg-gray-500 text-white py-1 px-3 rounded-md hover:bg-gray-600"
                   >
                     Edit
                   </button>
@@ -286,14 +286,14 @@ export default function AdminPage() {
                 value={editProject.title}
                 onChange={handleEditChange}
                 placeholder="Project Title"
-                className="block w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+                className="block w-full p-3 border border-gray-300 rounded-md"
               />
               <textarea
                 name="description"
                 value={editProject.description}
                 onChange={handleEditChange}
-                placeholder="Project Description"
-                className="block w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+                placeholder="Description"
+                className="block w-full p-3 border border-gray-300 rounded-md"
               />
               <input
                 type="text"
@@ -301,7 +301,7 @@ export default function AdminPage() {
                 value={editProject.image}
                 onChange={handleEditChange}
                 placeholder="Image URL"
-                className="block w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+                className="block w-full p-3 border border-gray-300 rounded-md"
               />
               <input
                 type="text"
@@ -309,14 +309,14 @@ export default function AdminPage() {
                 value={editProject.link}
                 onChange={handleEditChange}
                 placeholder="Project Link"
-                className="block w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+                className="block w-full p-3 border border-gray-300 rounded-md"
               />
               <div className="flex justify-end space-x-4 mt-4">
                 <button
                   type="submit"
-                  className="bg-blue-600 text-white py-2 px-6 rounded-md hover:bg-blue-700"
+                  className="bg-gray-600 text-white py-2 px-6 rounded-md hover:bg-gray-700"
                 >
-                  Save Changes
+                  Update
                 </button>
                 <button
                   type="button"
@@ -335,16 +335,12 @@ export default function AdminPage() {
       {showDeleteModal && (
         <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center">
           <div className="bg-white p-6 rounded-lg w-1/3 shadow-lg">
-            <h2 className="text-2xl font-semibold mb-6 text-gray-800">
-              Confirm Deletion
-            </h2>
-            <p className="text-gray-600">
-              Are you sure you want to delete this project?
-            </p>
+            <h2 className="text-2xl font-semibold mb-6 text-gray-800">Delete Project</h2>
+            <p>Are you sure you want to delete this project?</p>
             <div className="flex justify-end space-x-4 mt-4">
               <button
                 onClick={handleDeleteProject}
-                className="bg-red-500 text-white py-2 px-6 rounded-md hover:bg-red-600"
+                className="bg-red-600 text-white py-2 px-6 rounded-md hover:bg-red-700"
               >
                 Delete
               </button>
