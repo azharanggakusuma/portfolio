@@ -61,7 +61,7 @@ const Hero = () => {
             <div className="text-center">
               <a
                 className="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl from-blue-600 to-violet-600 shadow-lg shadow-transparent hover:shadow-blue-700/50 border border-transparent text-white text-sm font-medium rounded-full focus:outline-none focus:shadow-blue-700/50 py-3 px-6"
-                href="#"
+                href="#projects"
               >
                 <i className="fas fa-folder-open"></i> My Projects
               </a>
@@ -69,7 +69,8 @@ const Hero = () => {
             <div className="text-center">
               <a
                 className="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl from-blue-600 to-violet-600 shadow-lg shadow-transparent hover:shadow-blue-700/50 border border-transparent text-white text-sm font-medium rounded-full focus:outline-none focus:shadow-blue-700/50 py-3 px-6"
-                href="#"
+                href="https://www.linkedin.com/in/azharanggakusuma"
+                target="_blank"
               >
                 <i className="fas fa-paper-plane"></i> Let’s Connect
               </a>
