@@ -25,7 +25,7 @@ const Hero = () => {
               href="#"
             >
               <p className="me-2 text-white text-sm">
-                New projects are live! Explore now.
+                View my repository here!
               </p>
               <span className="group-hover:bg-white/10 py-1.5 px-2.5 flex justify-center items-center gap-x-2 rounded-full bg-white/10 font-semibold text-white text-sm">
                 <svg
