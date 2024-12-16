@@ -216,45 +216,50 @@ export default function AdminPage() {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <table className="table-auto w-full text-left">
-          <thead>
+        <table className="table-auto w-full text-left border-collapse shadow-lg rounded-lg overflow-hidden bg-white">
+          <thead className="bg-gradient-to-r from-gray-800 to-gray-900 text-white">
             <tr>
-              <th className="px-4 py-2">Title</th>
-              <th className="px-4 py-2">Description</th>
-              <th className="px-4 py-2">Image</th>
-              <th className="px-4 py-2">Link</th>
-              <th className="px-4 py-2">Actions</th>
+              <th className="px-6 py-3 text-sm font-semibold">Title</th>
+              <th className="px-6 py-3 text-sm font-semibold">Description</th>
+              <th className="px-6 py-3 text-sm font-semibold">Image</th>
+              <th className="px-6 py-3 text-sm font-semibold">Link</th>
+              <th className="px-6 py-3 text-sm font-semibold">Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-gray-800">
             {projects.map((project) => (
-              <tr key={project._id}>
-                <td className="px-4 py-2">{project.title}</td>
-                <td className="px-4 py-2">{project.description}</td>
-                <td className="px-4 py-2">
+              <tr
+                key={project._id}
+                className="border-t hover:bg-gray-50 transition duration-200 ease-in-out"
+              >
+                <td className="px-6 py-4 text-sm">{project.title}</td>
+                <td className="px-6 py-4 text-sm max-w-xs truncate">
+                  {project.description}
+                </td>
+                <td className="px-6 py-4 text-sm">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-16 h-16 object-cover rounded-md"
+                    className="w-16 h-16 object-cover rounded-md shadow-md"
                   />
                 </td>
-                <td className="px-4 py-2">
+                <td className="px-6 py-4 text-sm">
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline"
+                    className="text-blue-600 hover:text-blue-800 hover:underline"
                   >
                     View
                   </a>
                 </td>
-                <td className="px-4 py-2 space-x-4">
+                <td className="px-6 py-4 space-x-4 text-sm">
                   <button
                     onClick={() => {
                       setEditProject(project);
                       setShowEditModal(true);
                     }}
-                    className="text-gray-600 hover:text-gray-800"
+                    className="px-4 py-2 text-gray-600 bg-yellow-400 hover:bg-yellow-500 rounded-md shadow-sm transition duration-150 ease-in-out"
                   >
                     Edit
                   </button>
@@ -263,7 +268,7 @@ export default function AdminPage() {
                       setProjectToDelete(project._id);
                       setShowDeleteModal(true);
                     }}
-                    className="text-red-600 hover:text-red-800"
+                    className="px-4 py-2 text-white bg-red-600 hover:bg-red-700 rounded-md shadow-sm transition duration-150 ease-in-out"
                   >
                     Delete
                   </button>
